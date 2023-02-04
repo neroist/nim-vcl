@@ -14858,14 +14858,14 @@ proc GridColumns_StaticClassType*(): TClass {.importc: "GridColumns_StaticClassT
 proc doEventCallbackProc(f: pointer, args: pointer, argCount: int32): uint =
 
   # args为一个数组，长度为argCount, argCount最大为12
-  var val = proc(index: int): pointer {.nimcall.} =
+  var val = proc(index: int): pointer {.closure.} =
     return cast[pointer](cast[ptr uint](cast[uint](args) + cast[uint](index * sizeof(int)))[])
 
   # echo("doEventCallbackProc: f: ", cast[uint](f), ", args: ",cast[uint](args), ", count: ", argCount)
 
   case argCount
   of 0: 
-    cast[proc(){.nimcall.}](f)()
+    cast[proc() {.nimcall.} ](f)()
   of 1:
     cast[proc(a1:pointer) {.nimcall.} ](f)(val(0))
   of 2:
