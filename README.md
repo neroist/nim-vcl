@@ -1,6 +1,6 @@
 # nim-vcl
 
-Fork of `nim-vcl` that *works* (original repo fails with ```lclapi.nim(14862, 52) Error: illegal capture 'args' because ':anonymous' has the calling convention: <nimcall>```)
+Fork of `nim-vcl` that compiles (original repo fails with ```lclapi.nim(14862, 52) Error: illegal capture 'args' because ':anonymous' has the calling convention: <nimcall>```)
 
 *nim-vcl当前处于beta状态。*   
 
